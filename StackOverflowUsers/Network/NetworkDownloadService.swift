@@ -7,3 +7,16 @@
 //
 
 import Foundation
+
+class NetworkDownloadService {
+    var downloadsinProgress = [URL]()
+    var downloadsSession :URLSession?
+    
+    
+    func startDownloading(resourceWithURL resourceUrl :URL){
+        
+        downloadsSession?.downloadTask(with: resourceUrl).resume()
+        downloadsinProgress.append(resourceUrl)
+        
+    }
+}

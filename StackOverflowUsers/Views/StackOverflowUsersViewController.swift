@@ -8,11 +8,23 @@
 
 import UIKit
 
-class StackOverflowUsersViewController: UIViewController {
+class StackOverflowUsersViewController: UIViewController, StackOverflowUsersViewModelProtocol {
+
+    
+    
+    var stackOverflowUsersViewModel :StackOverflowUsersViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        stackOverflowUsersViewModel =  StackOverflowUsersViewModel()
+        stackOverflowUsersViewModel?.usersViewModelDelegate = self
+        stackOverflowUsersViewModel?.fetchStackOverflowUsers()
+    }
+    
+    //MARK - StackOverflowUsersViewModelProtocol methods
+    func userViewModelUpdatedUsersList() {
+        
     }
 
 
