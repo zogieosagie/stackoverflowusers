@@ -9,12 +9,13 @@
 /* Begin PBXBuildFile section */
 		90840B932385B7C700618D65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90840B922385B7C700618D65 /* AppDelegate.swift */; };
 		90840B952385B7C700618D65 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90840B942385B7C700618D65 /* SceneDelegate.swift */; };
-		90840B972385B7C700618D65 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90840B962385B7C700618D65 /* ViewController.swift */; };
+		90840B972385B7C700618D65 /* StackOverflowUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90840B962385B7C700618D65 /* StackOverflowUsersViewController.swift */; };
 		90840B9A2385B7C700618D65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90840B982385B7C700618D65 /* Main.storyboard */; };
 		90840B9C2385B7CB00618D65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90840B9B2385B7CB00618D65 /* Assets.xcassets */; };
 		90840B9F2385B7CB00618D65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90840B9D2385B7CB00618D65 /* LaunchScreen.storyboard */; };
 		90840BAA2385B7CB00618D65 /* StackOverflowUsersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90840BA92385B7CB00618D65 /* StackOverflowUsersTests.swift */; };
 		90840BB52385B7CB00618D65 /* StackOverflowUsersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90840BB42385B7CB00618D65 /* StackOverflowUsersUITests.swift */; };
+		90840BC62385BB8D00618D65 /* StackOverflowUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90840BC52385BB8D00618D65 /* StackOverflowUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +39,7 @@
 		90840B8F2385B7C700618D65 /* StackOverflowUsers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StackOverflowUsers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90840B922385B7C700618D65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90840B942385B7C700618D65 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		90840B962385B7C700618D65 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		90840B962385B7C700618D65 /* StackOverflowUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverflowUsersViewController.swift; sourceTree = "<group>"; };
 		90840B992385B7C700618D65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		90840B9B2385B7CB00618D65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		90840B9E2385B7CB00618D65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +50,7 @@
 		90840BB02385B7CB00618D65 /* StackOverflowUsersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StackOverflowUsersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		90840BB42385B7CB00618D65 /* StackOverflowUsersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverflowUsersUITests.swift; sourceTree = "<group>"; };
 		90840BB62385B7CB00618D65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		90840BC52385BB8D00618D65 /* StackOverflowUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverflowUser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +101,12 @@
 		90840B912385B7C700618D65 /* StackOverflowUsers */ = {
 			isa = PBXGroup;
 			children = (
+				90840BC72385C57200618D65 /* ViewControllers */,
+				90840BC42385B8E600618D65 /* ViewModel */,
+				90840BC32385B88500618D65 /* Network */,
+				90840BC22385B87100618D65 /* Model */,
 				90840B922385B7C700618D65 /* AppDelegate.swift */,
 				90840B942385B7C700618D65 /* SceneDelegate.swift */,
-				90840B962385B7C700618D65 /* ViewController.swift */,
 				90840B982385B7C700618D65 /* Main.storyboard */,
 				90840B9B2385B7CB00618D65 /* Assets.xcassets */,
 				90840B9D2385B7CB00618D65 /* LaunchScreen.storyboard */,
@@ -126,6 +131,36 @@
 				90840BB62385B7CB00618D65 /* Info.plist */,
 			);
 			path = StackOverflowUsersUITests;
+			sourceTree = "<group>";
+		};
+		90840BC22385B87100618D65 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				90840BC52385BB8D00618D65 /* StackOverflowUser.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		90840BC32385B88500618D65 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		90840BC42385B8E600618D65 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		90840BC72385C57200618D65 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				90840B962385B7C700618D65 /* StackOverflowUsersViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,9 +294,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90840B972385B7C700618D65 /* ViewController.swift in Sources */,
+				90840B972385B7C700618D65 /* StackOverflowUsersViewController.swift in Sources */,
 				90840B932385B7C700618D65 /* AppDelegate.swift in Sources */,
 				90840B952385B7C700618D65 /* SceneDelegate.swift in Sources */,
+				90840BC62385BB8D00618D65 /* StackOverflowUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
