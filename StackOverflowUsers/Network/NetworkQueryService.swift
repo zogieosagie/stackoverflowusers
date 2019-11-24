@@ -39,7 +39,11 @@ class NetworkQueryService {
             DispatchQueue.main.async {
               completion(data, error)
             }
-          }
+          }else{
+                DispatchQueue.main.async {
+                  completion(nil, error)
+                }
+            }
         }
         
         urlSessionDataTask?.resume()

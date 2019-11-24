@@ -13,8 +13,9 @@ class StackOverflowUsersViewController: UIViewController, StackOverflowUsersView
     var stackOverflowUsersViewModel :StackOverflowUsersViewModel?
     
     @IBOutlet weak var usersTableView: UITableView!
+    @IBOutlet weak var errorMessageContainer: UIView!
+    @IBOutlet weak var errorMessageLabel: UILabel!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,21 +25,27 @@ class StackOverflowUsersViewController: UIViewController, StackOverflowUsersView
         stackOverflowUsersViewModel =  StackOverflowUsersViewModel()
         stackOverflowUsersViewModel?.usersViewModelDelegate = self
         stackOverflowUsersViewModel?.fetchStackOverflowUsers()
+        
+        errorMessageContainer.layer.cornerRadius = 5.0
     }
     
     //MARK: StackOverflowUsersViewModelProtocol methods
     func userViewModelUpdatedUsersList(withErrorMessage errorMessage: String?) {
         
-        if(errorMessage == nil){
+        if(errorMessage == nil)
+        {
+            errorMessageContainer.isHidden = true
             self.usersTableView.reloadData()
         }
-        else{
-            
+        else
+        {
+            errorMessageContainer.isHidden = false
+            errorMessageLabel.text = errorMessage
         }
     }
     
     func userModelUpdatedItem(atRow row: Int) {
-        self.usersTableView.reloadRows(at: [IndexPath.init(row: row, section: 0)], with: .automatic)
+        self.usersTableView.reloadRows(at: [IndexPath.init(row: row, section: 0)], with: .none)
     }
     
     //MARK: Tableview datasource methods
