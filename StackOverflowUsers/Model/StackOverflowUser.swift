@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct StackOverflowUser : Codable {
+class StackOverflowUser : Codable {
     let userName :String
     let imageUrl :String
     let reputation :Int?
@@ -16,7 +16,11 @@ struct StackOverflowUser : Codable {
     var isFollowed = false
     var isBlocked = false
     var isExpanded = false
-    var localImageUrl :String?
+    var localImageUrl :URL?
+    
+    func updateLocalImageUrl(updateUrl :URL) {
+        self.localImageUrl = updateUrl
+    }
     
     enum CodingKeys: String, CodingKey {
         case userName = "display_name"
@@ -24,6 +28,7 @@ struct StackOverflowUser : Codable {
         case reputation
     }
 }
+
 
 
 

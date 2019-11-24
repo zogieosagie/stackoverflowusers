@@ -9,14 +9,19 @@
 import Foundation
 
 class NetworkDownloadService {
-    var downloadsinProgress = [URL]()
+    var downloadsinProgress = [URL : Int]()
     var downloadsSession :URLSession?
     
+    init(withDelegate delegate :URLSessionDelegate?) {
+        let config = URLSessionConfiguration.background(withIdentifier:"com.stackOverflowUsers.backgroundsession")
+                    downloadsSession = URLSession(configuration: config, delegate: delegate, delegateQueue: nil)
+    }
     
-    func startDownloading(resourceWithURL resourceUrl :URL){
+    
+    func startDownloading(resourceWithURL resourceUrl :URL, atIndex index :Int){
         
         downloadsSession?.downloadTask(with: resourceUrl).resume()
-        downloadsinProgress.append(resourceUrl)
+        downloadsinProgress[resourceUrl] = index
         
     }
 }
