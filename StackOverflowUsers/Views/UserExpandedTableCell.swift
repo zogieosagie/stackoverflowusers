@@ -23,7 +23,6 @@ class UserExpandedTableCell: UITableViewCell {
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var reputation: UILabel!
     
-    
     @IBOutlet weak var followStatusContainerView: UIView!
     @IBOutlet weak var blockedStatusContainerView: UIView!
     @IBOutlet weak var followButton: UIButton!
@@ -35,8 +34,6 @@ class UserExpandedTableCell: UITableViewCell {
     
     @IBOutlet weak var reputationViewContainer: UIView!
     @IBOutlet weak var followStatusContainer: UIView!
-    
-    
     
     var expandableCellDelegate :UserExpandedTableCellProtocol?
     var myIndex :Int?
@@ -68,7 +65,7 @@ class UserExpandedTableCell: UITableViewCell {
     var isBlocked :Bool = false{
         
         didSet{
-            
+            //If user is blocked, disbale unfollow button and reduce alpha values for labels
             if(isBlocked == true){
                 blockedStatusContainerView.isHidden = false
                 expanded = false
@@ -77,7 +74,6 @@ class UserExpandedTableCell: UITableViewCell {
                 profileImage.alpha = 0.5
                 userName.alpha = 0.5
                 unFollowButton.isEnabled = false
-                
             }
             else{
                 blockedStatusContainerView.isHidden = true
@@ -98,6 +94,7 @@ class UserExpandedTableCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
     @IBAction func requestToUnfollow(_ sender: UIButton) {
         self.expandableCellDelegate?.cellRequestsUnfollowFollowForCell(atPosition: myIndex)
     }

@@ -16,6 +16,11 @@ class NetworkQueryService {
     
     private var urlSessionDataTask: URLSessionDataTask?
     
+    /*
+     1. Attempt to fetch resource.
+     2. On completion call the completion block with fetched data and error.
+     
+     */
     func performNetworkQuery(withBaseUrlString baseUrl :String, andQueryString query :String, completion :@escaping NetworkServiceResult) {
 
         urlSessionDataTask?.cancel()

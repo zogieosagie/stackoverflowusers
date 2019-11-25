@@ -11,24 +11,75 @@ import XCTest
 
 class StackOverflowUsersTests: XCTestCase {
 
+    
+    var systemUnderTest: StackOverflowUsersViewModel!
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+      super.setUp()
+      systemUnderTest = StackOverflowUsersViewModel()
+      systemUnderTest.stackOverflowUsers = mockStackOverflowUsers()
     }
-
+    
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+      systemUnderTest = nil
+      super.tearDown()
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testUserBlocking(){
+        
+        systemUnderTest.blockUserRequest(forItem: 0)
+        XCTAssertTrue(systemUnderTest.blockedStatus(forCellAtIndex: 0), "Expected Blocked Status for user to be true")
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    func testFollowUser(){
+        
+        systemUnderTest.followUserRequest(forItem: 0)
+        XCTAssertTrue(systemUnderTest.followStatus(forCellAtIndex: 0), "Expected follow Status for user to be true")
+    }
+    
+    func testUnFollowUser(){
+        
+        systemUnderTest.unFollowUserRequest(forItem: 0)
+        XCTAssertFalse(systemUnderTest.followStatus(forCellAtIndex: 0), "Expected follow Status for user to be false")
+    }
+    
+    func testExpandRequest(){
+        
+        systemUnderTest.expandCollapseRequest(forItem: 0)
+        XCTAssertTrue(systemUnderTest.expandedStatus(forCellAtIndex: 0), "Expected expand status to be true")
+    }
+    
+    func testExpandCollapseRequest(){
+        systemUnderTest.expandCollapseRequest(forItem: 0)
+        systemUnderTest.expandCollapseRequest(forItem: 0)
+        XCTAssertFalse(systemUnderTest.expandedStatus(forCellAtIndex: 0), "Expected expand status to be false")
+    }
+    
+    func testBlockUserForcesCollapse(){
+        
+        systemUnderTest.expandCollapseRequest(forItem: 0)
+        XCTAssertTrue(systemUnderTest.expandedStatus(forCellAtIndex: 0), "Expected expand status to be true")
+        
+        systemUnderTest.blockUserRequest(forItem: 0)
+        XCTAssertTrue(systemUnderTest.blockedStatus(forCellAtIndex: 0), "Expected Blocked Status for user to be true")
+        XCTAssertFalse(systemUnderTest.expandedStatus(forCellAtIndex: 0), "Expected expand status to be false")
+    }
+    
+    func mockStackOverflowUsers() -> [StackOverflowUser] {
+        let jsonString = """
+        {
+            "display_name": "Jon Skeet",
+            "profile_image": "https://www.gravatar.com/avatar/6d8ebb117e8d83d74ea95fbdd0f87e13?s=128&d=identicon&r=PG",
+            "reputation": 1146196
         }
+        """
+
+        let jsonData = jsonString.data(using: .utf8)!
+        let mockUser = try! JSONDecoder().decode(StackOverflowUser.self, from: jsonData)
+        let mockUsers = [mockUser]
+        
+        return mockUsers
     }
 
 }

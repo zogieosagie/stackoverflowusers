@@ -17,7 +17,9 @@ class NetworkDownloadService {
                     downloadsSession = URLSession(configuration: config, delegate: delegate, delegateQueue: nil)
     }
     
-    
+    /*
+     When we start downloading an item we include its index in a dictionary with its URL as the key. This will enable us know which item initiated a download when it completes.
+     */
     func startDownloading(resourceWithURL resourceUrl :URL, atIndex index :Int){
         
         downloadsSession?.downloadTask(with: resourceUrl).resume()

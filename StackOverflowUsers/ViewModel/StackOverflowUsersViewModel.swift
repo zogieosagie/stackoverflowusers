@@ -33,7 +33,6 @@ class StackOverflowUsersViewModel :NSObject, URLSessionDownloadDelegate {
     let networkQueryService = NetworkQueryService()
     var networkDownloadService :NetworkDownloadService?
     
-    
     var networkResponse :Codable = [StackOverflowUser]()
     
     override init() {
@@ -50,6 +49,7 @@ class StackOverflowUsersViewModel :NSObject, URLSessionDownloadDelegate {
         
         stackOverflowUsers = [StackOverflowUser]()
         
+        //Notify delegate with error when we are done.
         if(error == nil){
             do{
                 
@@ -88,6 +88,10 @@ class StackOverflowUsersViewModel :NSObject, URLSessionDownloadDelegate {
         return userReputation
     }
     
+    /*
+      If this image has been previously downloaded, return the path to the image. However it it hasn't return nil and initiate its download. The delegate will be notified when download is complete.
+     
+     */
     func imagePath(forCellAtIndex cellIndex :Int) -> URL?
     {
         var localImageUrl :URL?
@@ -166,6 +170,7 @@ class StackOverflowUsersViewModel :NSObject, URLSessionDownloadDelegate {
     func blockUserRequest(forItem itemIndex:Int){
         let thisStackOverflowUser = stackOverflowUsers[itemIndex]
         thisStackOverflowUser.isBlocked = true
+        thisStackOverflowUser.isExpanded = false
         
         self.usersViewModelDelegate?.userModelUpdatedItem(atRow: itemIndex)
     }
@@ -173,6 +178,14 @@ class StackOverflowUsersViewModel :NSObject, URLSessionDownloadDelegate {
     
     
     //MARK: URLSession delegate
+    
+    /*
+     When download is complete:
+     1. Find out the index of the item that initiated the download. This will enable us send a specific message to the delegate to reload an item rather than everything.
+     2. Copy the image to disk.
+     3. Update the local imagepath url for the model
+     4. Notify the delegate.
+     */
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
         
         
@@ -193,8 +206,8 @@ class StackOverflowUsersViewModel :NSObject, URLSessionDownloadDelegate {
 
         do {
           try fileManager.copyItem(at: location, to: destinationURL)
-        } catch let error {
-          
+        } catch _ {
+          return
         }
         
         guard indexOfDownload! < stackOverflowUsers.count else {
@@ -207,17 +220,11 @@ class StackOverflowUsersViewModel :NSObject, URLSessionDownloadDelegate {
       DispatchQueue.main.async { [weak self] in
         self?.usersViewModelDelegate?.userModelUpdatedItem(atRow: indexOfDownload!)
       }
-        
-
-
     }
     
     func localFilePath(for url: URL) -> URL {
       return documentsPath.appendingPathComponent(url.lastPathComponent)
     }
-    
-    
-    
     
     
 }
