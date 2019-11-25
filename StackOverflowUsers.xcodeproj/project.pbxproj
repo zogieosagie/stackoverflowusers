@@ -20,7 +20,6 @@
 		90840BCB23868D8C00618D65 /* NetworkDownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90840BCA23868D8C00618D65 /* NetworkDownloadService.swift */; };
 		90840BCD23868EBE00618D65 /* StackOverflowUsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90840BCC23868EBE00618D65 /* StackOverflowUsersViewModel.swift */; };
 		90840BD123868F3400618D65 /* UserExpandedTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90840BD023868F3400618D65 /* UserExpandedTableCell.swift */; };
-		90840BD9238B7B0200618D65 /* StackOverflowUsersNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90840BD8238B7B0200618D65 /* StackOverflowUsersNetworkTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,13 +31,6 @@
 			remoteInfo = StackOverflowUsers;
 		};
 		90840BB12385B7CB00618D65 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 90840B872385B7C700618D65 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 90840B8E2385B7C700618D65;
-			remoteInfo = StackOverflowUsers;
-		};
-		90840BDB238B7B0200618D65 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 90840B872385B7C700618D65 /* Project object */;
 			proxyType = 1;
@@ -67,7 +59,6 @@
 		90840BCA23868D8C00618D65 /* NetworkDownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDownloadService.swift; sourceTree = "<group>"; };
 		90840BCC23868EBE00618D65 /* StackOverflowUsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverflowUsersViewModel.swift; sourceTree = "<group>"; };
 		90840BD023868F3400618D65 /* UserExpandedTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserExpandedTableCell.swift; sourceTree = "<group>"; };
-		90840BD6238B7B0200618D65 /* StackOverflowUsersNetworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StackOverflowUsersNetworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		90840BD8238B7B0200618D65 /* StackOverflowUsersNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverflowUsersNetworkTests.swift; sourceTree = "<group>"; };
 		90840BDA238B7B0200618D65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,13 +85,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		90840BD3238B7B0200618D65 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -121,7 +105,6 @@
 				90840B8F2385B7C700618D65 /* StackOverflowUsers.app */,
 				90840BA52385B7CB00618D65 /* StackOverflowUsersTests.xctest */,
 				90840BB02385B7CB00618D65 /* StackOverflowUsersUITests.xctest */,
-				90840BD6238B7B0200618D65 /* StackOverflowUsersNetworkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -260,24 +243,6 @@
 			productReference = 90840BB02385B7CB00618D65 /* StackOverflowUsersUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		90840BD5238B7B0200618D65 /* StackOverflowUsersNetworkTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 90840BDD238B7B0200618D65 /* Build configuration list for PBXNativeTarget "StackOverflowUsersNetworkTests" */;
-			buildPhases = (
-				90840BD2238B7B0200618D65 /* Sources */,
-				90840BD3238B7B0200618D65 /* Frameworks */,
-				90840BD4238B7B0200618D65 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				90840BDC238B7B0200618D65 /* PBXTargetDependency */,
-			);
-			name = StackOverflowUsersNetworkTests;
-			productName = StackOverflowUsersNetworkTests;
-			productReference = 90840BD6238B7B0200618D65 /* StackOverflowUsersNetworkTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -299,10 +264,6 @@
 						CreatedOnToolsVersion = 11.1;
 						TestTargetID = 90840B8E2385B7C700618D65;
 					};
-					90840BD5238B7B0200618D65 = {
-						CreatedOnToolsVersion = 11.1;
-						TestTargetID = 90840B8E2385B7C700618D65;
-					};
 				};
 			};
 			buildConfigurationList = 90840B8A2385B7C700618D65 /* Build configuration list for PBXProject "StackOverflowUsers" */;
@@ -321,7 +282,6 @@
 				90840B8E2385B7C700618D65 /* StackOverflowUsers */,
 				90840BA42385B7CB00618D65 /* StackOverflowUsersTests */,
 				90840BAF2385B7CB00618D65 /* StackOverflowUsersUITests */,
-				90840BD5238B7B0200618D65 /* StackOverflowUsersNetworkTests */,
 			);
 		};
 /* End PBXProject section */
@@ -345,13 +305,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		90840BAE2385B7CB00618D65 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		90840BD4238B7B0200618D65 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -392,14 +345,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		90840BD2238B7B0200618D65 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				90840BD9238B7B0200618D65 /* StackOverflowUsersNetworkTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -412,11 +357,6 @@
 			isa = PBXTargetDependency;
 			target = 90840B8E2385B7C700618D65 /* StackOverflowUsers */;
 			targetProxy = 90840BB12385B7CB00618D65 /* PBXContainerItemProxy */;
-		};
-		90840BDC238B7B0200618D65 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 90840B8E2385B7C700618D65 /* StackOverflowUsers */;
-			targetProxy = 90840BDB238B7B0200618D65 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -674,46 +614,6 @@
 			};
 			name = Release;
 		};
-		90840BDE238B7B0200618D65 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YF23YAE3CS;
-				INFOPLIST_FILE = StackOverflowUsersNetworkTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rmeideas.StackOverflowUsersNetworkTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StackOverflowUsers.app/StackOverflowUsers";
-			};
-			name = Debug;
-		};
-		90840BDF238B7B0200618D65 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YF23YAE3CS;
-				INFOPLIST_FILE = StackOverflowUsersNetworkTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rmeideas.StackOverflowUsersNetworkTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StackOverflowUsers.app/StackOverflowUsers";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -749,15 +649,6 @@
 			buildConfigurations = (
 				90840BC02385B7CB00618D65 /* Debug */,
 				90840BC12385B7CB00618D65 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		90840BDD238B7B0200618D65 /* Build configuration list for PBXNativeTarget "StackOverflowUsersNetworkTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				90840BDE238B7B0200618D65 /* Debug */,
-				90840BDF238B7B0200618D65 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

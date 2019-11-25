@@ -56,16 +56,6 @@ class StackOverflowUsersTests: XCTestCase {
         XCTAssertFalse(systemUnderTest.expandedStatus(forCellAtIndex: 0), "Expected expand status to be false")
     }
     
-    func testBlockUserForcesCollapse(){
-        
-        systemUnderTest.expandCollapseRequest(forItem: 0)
-        XCTAssertTrue(systemUnderTest.expandedStatus(forCellAtIndex: 0), "Expected expand status to be true")
-        
-        systemUnderTest.blockUserRequest(forItem: 0)
-        XCTAssertTrue(systemUnderTest.blockedStatus(forCellAtIndex: 0), "Expected Blocked Status for user to be true")
-        XCTAssertFalse(systemUnderTest.expandedStatus(forCellAtIndex: 0), "Expected expand status to be false")
-    }
-    
     func mockStackOverflowUsers() -> [StackOverflowUser] {
         let jsonString = """
         {

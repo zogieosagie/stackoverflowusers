@@ -170,7 +170,6 @@ class StackOverflowUsersViewModel :NSObject, URLSessionDownloadDelegate {
     func blockUserRequest(forItem itemIndex:Int){
         let thisStackOverflowUser = stackOverflowUsers[itemIndex]
         thisStackOverflowUser.isBlocked = true
-        thisStackOverflowUser.isExpanded = false
         
         self.usersViewModelDelegate?.userModelUpdatedItem(atRow: itemIndex)
     }
